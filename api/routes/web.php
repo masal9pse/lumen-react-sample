@@ -14,6 +14,11 @@
 */
 
 $router->get('/', function () use ($router) {
-    //return $router->app->version();
-    return 'aa';
+    return $router->app->version();
 });
+
+//$router->get('/posts', 'PostController@index');
+
+$router->get(env('VERSION') . '/articles', 'ArticleController@get');
+
+$router->get(env('VERSION') . '/articles/{id}', 'ArticleController@getById');
